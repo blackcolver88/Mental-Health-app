@@ -1,21 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';  
-import { useNavigation } from '@react-navigation/native';
-const SecondPage = () => {
-  const navigation = useNavigation();
+
+const ThirdPage = () => {
   return (
     <View style={styles.container}>
       
       
       <View style={styles.stepLabel}>
-        <Text style={styles.stepText}>Step One</Text>
+        <Text style={styles.stepText}>Step Two</Text>
       </View>
 
     
       
       <View style={styles.imageContainer}>
-        <Image source={require('../assets/Group.png')} style={styles.characterImage} />
+        <Image source={require('../assets/Group2.png')} style={styles.characterImage} />
       </View>
 
       
@@ -23,15 +22,12 @@ const SecondPage = () => {
         
      </View>
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Personalize Your Mental</Text>
-        <Text style={styles.highlightedTitle}>Health State With Us</Text>
+        <Text style={styles.title}>Intelligent Mood Tracking</Text>
+        <Text style={styles.highlightedTitle}>& Emotion Insights</Text>
       </View>
 
     
-      <TouchableOpacity 
-        style={styles.button} 
-        onPress={() => navigation.navigate('ThirdPage')} 
-      >
+      <TouchableOpacity style={styles.button}>
         <Ionicons name="arrow-forward" size={24} color="white" />
       </TouchableOpacity>
     </View>
@@ -83,7 +79,7 @@ const styles = StyleSheet.create({
   highlightedTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#6FCF97',  // Highlighted color for "Health State"
+    color: '#F68714',  
     textAlign: 'center',
   },
   /*all: {
@@ -107,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecondPage;
+export default ThirdPage;
