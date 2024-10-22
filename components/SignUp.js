@@ -1,23 +1,40 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Importing icons
-import FontAwesome from 'react-native-vector-icons/FontAwesome'; // For social icons
+import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
-const FifthPage = () => {
+const SignUp = () => {
+  const navigation = useNavigation();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
   return (
     <View style={styles.container}>
       {/* Top Logo */}
       <View style={styles.logoContainer}>
-      <Image source={require('../assets/logo2.png')} />
+        <Image source={require('../assets/logo2.png')} />
       </View>
 
-      {/* Sign In Title */}
-      <Text style={styles.title}>Sign In</Text>
+      {/* Sign Up Title */}
+      <Text style={styles.title}>Sign Up</Text>
       <Text style={styles.subtitle}>MindBloom</Text>
+
+      {/* Name Input */}
+      <Text style={styles.label}>Full Name</Text>
+      <View style={styles.inputContainer}>
+        <Icon name="person-outline" size={20} color="#787878" style={styles.inputIcon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          placeholderTextColor="#9E9E9E"
+          value={name}
+          onChangeText={setName}
+        />
+      </View>
 
       {/* Email Input */}
       <Text style={styles.label}>Email Address</Text>
@@ -52,28 +69,36 @@ const FifthPage = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton}>
-        <Text style={styles.signInButtonText}>Sign In</Text>
+      {/* Confirm Password Input */}
+      <Text style={styles.label}>Confirm Password</Text>
+      <View style={styles.inputContainer}>
+        <Icon name="lock-closed-outline" size={20} color="#787878" style={styles.inputIcon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm your password..."
+          placeholderTextColor="#9E9E9E"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry={!isPasswordVisible}
+          autoCapitalize="none"
+        />
+        <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
+          <Icon name={isPasswordVisible ? 'eye-outline' : 'eye-off-outline'} size={20} color="#787878" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Sign Up Button */}
+      <TouchableOpacity style={styles.signUpButton}>
+        <Text style={styles.signUpButtonText}>Sign Up</Text>
         <Icon name="arrow-forward-outline" size={20} color="#FFFFFF" />
       </TouchableOpacity>
 
-      {/* Social Icons */}
-      <View style={styles.socialIconsContainer}>
-        <FontAwesome name="facebook" size={30} color="#3b5998" />
-        <FontAwesome name="google" size={30} color="#DB4437" />
-        <FontAwesome name="instagram" size={30} color="#C13584" />
-      </View>
-
       {/* Bottom Links */}
       <View style={styles.bottomLinks}>
-        <Text style={styles.signUpText}>
-          Don't have an account?{' '}
-          <Text style={styles.signUpLink}>Sign Up</Text>
+        <Text style={styles.signInText}>
+          Already have an account?{' '}
+          <Text style={styles.signInLink} onPress={() => navigation.navigate('Login')}>Sign In</Text>
         </Text>
-        <TouchableOpacity>
-          <Text style={styles.forgotPassword}>Forgot Password</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -82,7 +107,7 @@ const FifthPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F5F0',    
+    backgroundColor: '#F8F5F0',
   },
   logoContainer: {
     alignItems: 'center',
@@ -109,9 +134,9 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     color: '#4D351F',
-    marginLeft:20,
-    fontWeight:'bold',
-    marginBottom: 5,  // Space between label and input field
+    marginLeft: 20,
+    fontWeight: 'bold',
+    marginBottom: 5,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -123,8 +148,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderWidth: 2,
     borderColor: '#B7C59E',
-    marginLeft:20,
-    marginRight:20
+    marginLeft: 20,
+    marginRight: 20,
   },
   input: {
     flex: 1,
@@ -133,9 +158,9 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     marginRight: 10,
-    color:'#4D351F',
+    color: '#4D351F',
   },
-  signInButton: {
+  signUpButton: {
     backgroundColor: '#4D351F',
     flexDirection: 'row',
     alignItems: 'center',
@@ -144,36 +169,25 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop: 10,
     marginBottom: 20,
-    marginLeft:20,
-    marginRight:20
+    marginLeft: 20,
+    marginRight: 20,
   },
-  signInButtonText: {
+  signUpButtonText: {
     color: '#fff',
     fontSize: 18,
     marginRight: 10,
   },
-  socialIconsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginTop: 10,
-  },
   bottomLinks: {
-    marginTop: 20,
     alignItems: 'center',
   },
-  signUpText: {
+  signInText: {
     fontSize: 14,
     color: '#4D351F',
   },
-  signUpLink: {
+  signInLink: {
     color: '#F57F17',
     fontWeight: 'bold',
   },
-  forgotPassword: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#F57F17',
-  },
 });
 
-export default FifthPage;
+export default SignUp;

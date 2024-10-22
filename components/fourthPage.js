@@ -20,19 +20,16 @@ const FourthPage = () => {
           />
         </View>
   
-      
-        <View style={styles.roundedSection}>
-        
+              
         <View style={styles.textContainer}>
           <Text style={styles.headingText}>
             Mindful <Text style={styles.highlightText}>Resources</Text> That Makes You Happy
           </Text>
         </View>
       
-        <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('FifthPage')} >
+        <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Login')} >
           <Ionicons name="arrow-forward" size={24} color="white" />
         </TouchableOpacity>
-      </View>
       </View>
      
       
@@ -69,16 +66,6 @@ const FourthPage = () => {
         width: 500,
         height: 500,
         resizeMode: 'contain',
-      },
-      roundedSection: {
-        width:'100%',
-        backgroundColor: 'white',
-        borderTopLeftRadius: 110,
-        borderTopRightRadius: 110,
-        paddingTop: 30,
-        paddingBottom: 20,
-        alignItems: 'center',
-        justifyContent: 'space-between',
       },
       textContainer: {
         marginVertical: 10,
