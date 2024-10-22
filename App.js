@@ -7,6 +7,7 @@ import SecondPage from './components/secondPage';
 import FourthPage from './components/fourthPage';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import AssessmentHealthGoal from './components/AssessementHealthGoal';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen name="FourthPage" component={FourthPage} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="AssessmentHealthGoal" component={AssessmentHealthGoal} />
       </Stack.Navigator>
     </NavigationContainer>
   );

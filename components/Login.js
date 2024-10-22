@@ -55,7 +55,11 @@ const Login = () => {
       </View>
 
       {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton}>
+      <TouchableOpacity 
+       style={styles.signInButton}
+        onPress={() => navigation.navigate('AssessmentHealthGoal')
+       }
+      >
         <Text style={styles.signInButtonText}>Sign In</Text>
         <Icon name="arrow-forward-outline" size={20} color="#FFFFFF" />
       </TouchableOpacity>
