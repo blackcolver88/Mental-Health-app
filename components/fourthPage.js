@@ -8,7 +8,7 @@ const FourthPage = () => {
     return (
         <View style={styles.container}>
        
-        <View style={styles.stepContainer}>
+        <View style={styles.stepLabel}>
           <Text style={styles.stepText}>Step Three</Text>
         </View>
   
@@ -44,32 +44,33 @@ const FourthPage = () => {
         justifyContent: 'space-between',
         paddingVertical: 40,
       },
-      stepContainer: {
-        backgroundColor: 'rgba(255, 107, 53, 0.1)',
-        paddingHorizontal: 15,
-        paddingVertical: 5,
-        borderRadius: 20,
-        position: 'absolute',
-        top: 40,
-        zIndex: 10,
+      stepLabel: {
+        backgroundColor: '#FFFFFE',
+        paddingVertical: 8,
+        paddingHorizontal: 25,
+        borderRadius: 25,
+        marginTop: 20,
+        borderColor: '#88888'
       },
       stepText: {
-        color: '#FF6B35',
-        fontWeight: 'bold',
         fontSize: 16,
+        fontWeight: 'bold',
+        color: '#6B4A3D',
       },
       illustrationContainer: {
-        flex: 1,
-        justifyContent: 'center',
+        alignItems:'center',
+        position:'relative'
       },
       illustration: {
-        width: 500,
-        height: 500,
+        width: 450,
+        height: 450,
         resizeMode: 'contain',
       },
       textContainer: {
         marginVertical: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: 30,
+        alignItems: 'center',
+        marginTop: 27,
       },
       headingText: {
         fontSize: 24,

@@ -35,7 +35,7 @@ const FirstPage = () => {
       <View style={styles.signInContainer}>
         <Text style={styles.signInText}>
           Already have an account?{' '}
-          <Text style={styles.signInLink}>Sign In</Text>
+          <Text style={styles.signInLink} onPress={() => navigation.navigate('Login')} >Sign In</Text>
         </Text>
       </View>
     </View>
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDF5EC', 
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 20,
   },
   header: {
     alignItems: 'center',
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,  
   },
   signInContainer: {
-    marginBottom: 20, 
+    marginBottom: 30, 
   },
   signInText: {
     fontSize: 14,
