@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';  
-
+import { useNavigation } from '@react-navigation/native';
 const ThirdPage = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       
@@ -27,7 +28,10 @@ const ThirdPage = () => {
       </View>
 
     
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate('FourthPage')} 
+      >
         <Ionicons name="arrow-forward" size={24} color="white" />
       </TouchableOpacity>
     </View>
