@@ -5,7 +5,8 @@ import FirstPage from './components/firstPage';
 import ThirdPage from './components/thirdPage'; 
 import SecondPage from './components/secondPage'; 
 import FourthPage from './components/fourthPage';
-import FifthPage from './components/fifthPage';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -15,8 +16,8 @@ const App = () => {
         <Stack.Screen name="SecondPage" component={SecondPage} />
         <Stack.Screen name="ThirdPage" component={ThirdPage} />
         <Stack.Screen name="FourthPage" component={FourthPage} />
-        <Stack.Screen name="FifthPage" component={FifthPage} />
-        
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
