@@ -9,7 +9,7 @@ const AssessmentHealthPage = () => {
     { id: '1', text: 'I wanna reduce stress', icon: 'heart' },
     { id: '2', text: 'I wanna know more about my mental issues', icon: 'info'},
     { id: '3', text: 'I want to cope with trauma', icon: 'flag' },
-    { id: '4', text: 'I want to be a better person', icon: 'smile' },
+    { id: '4', text: 'I want to be a better person', icon: 'smile-o' },
     { id: '5', text: 'Just trying out the app, mate!', icon: 'comment' },
   ];
 
