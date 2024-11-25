@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';  // Icons
+import { useNavigation } from '@react-navigation/native';
 
 const AssessmentHealthPage = () => {
+  const navigation = useNavigation();
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
@@ -65,7 +67,7 @@ const AssessmentHealthPage = () => {
 
       {/* Continue Button */}
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('Gender')}>Continue</Text>
         <Ionicons name="arrow-forward" size={20} color="#FFF" />
       </TouchableOpacity>
     </View>
