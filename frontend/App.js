@@ -11,6 +11,7 @@ import AssessmentHealthGoal from './components/AssessementHealthGoal';
 import Gender from './components/Gender';
 import Age from './components/age';
 import Weight from './components/weight';
+import Mood from './components/mood';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Stack.Screen name="Gender" component={Gender} />
         <Stack.Screen name='Age' component={Age} />
         <Stack.Screen name='Weight' component={Weight} />
+        <Stack.Screen name='Mood' component={Mood} />
       </Stack.Navigator>
     </NavigationContainer>
   );

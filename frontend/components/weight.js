@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Icons
-
+import { useNavigation } from '@react-navigation/native';
 const Weight = () => {
   const [unit, setUnit] = useState('kg'); // 'kg' or 'lbs'
   const [selectedWeight, setSelectedWeight] = useState(55); // Default weight
-
+  const navigation = useNavigation();
   // List of weight options based on unit
   const weights = unit === 'kg' 
     ? Array.from({ length: 200 }, (_, i) => i + 1) // 1 to 200 kg
@@ -79,7 +79,7 @@ const Weight = () => {
 
       {/* Continue Button */}
       <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText}>Continue</Text>
+        <Text style={styles.continueText} onPress={() => navigation.navigate('Mood')} >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>
