@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Icons
-
+import { useNavigation } from '@react-navigation/native';
 
 const Age = () => {
+  const navigation = useNavigation();
   const [selectedAge, setSelectedAge] = useState(22); // Default age
 
   // List of age options
@@ -54,8 +55,8 @@ const Age = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText}>Continue</Text>
+      <TouchableOpacity style={styles.continueButton} >
+        <Text style={styles.continueText} onPress={() => navigation.navigate('Weight')} >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>
