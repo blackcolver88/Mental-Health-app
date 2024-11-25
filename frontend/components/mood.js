@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Icons
 import Slider from '@react-native-community/slider';
-
+import { useNavigation } from '@react-navigation/native';
 const Mood = () => {
   const [moodValue, setMoodValue] = useState(2); // Default mood (2 - Neutral)
-
+  const navigation = useNavigation();
   // Mood data
   const moods = [
     { id: 0, label: 'I feel Angry.', color: '#FF6347', emoji: '😡' },
@@ -66,7 +66,7 @@ const Mood = () => {
 
       {/* Continue Button */}
       <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText}>Continue</Text>
+        <Text style={styles.continueText} onPress={() => navigation.navigate('ProfessionalHelp')}  >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>
