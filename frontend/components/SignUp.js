@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
+import api from '../api';
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -11,6 +11,28 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  const handleSignUp = async () => {
+    if (password !== confirmPassword) {
+      return Alert.alert('Error', 'Passwords do not match!');
+    }
+
+    try {
+      const response = await api.post('/signup', {
+        userName: name,
+        email,
+        password,
+      });
+
+      // After successful signup, navigate to the login page
+      Alert.alert('Success', 'User registered successfully');
+      navigation.navigate('Login'); // Navigate to Login screen
+
+    } catch (error) {
+      console.error('SignUp Error:', error);
+      Alert.alert('Error', error.response?.data?.message || 'Something went wrong!');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -89,7 +111,7 @@ const SignUp = () => {
 
       {/* Sign Up Button */}
       <TouchableOpacity style={styles.signUpButton}>
-        <Text style={styles.signUpButtonText}>Sign Up</Text>
+        <Text style={styles.signUpButtonText} onPress={handleSignUp}>Sign Up</Text>
         <Icon name="arrow-forward-outline" size={20} color="#FFFFFF" />
       </TouchableOpacity>
 
