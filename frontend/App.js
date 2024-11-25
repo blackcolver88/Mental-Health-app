@@ -8,6 +8,7 @@ import FourthPage from './components/fourthPage';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import AssessmentHealthGoal from './components/AssessementHealthGoal';
+import Gender from './components/Gender';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="AssessmentHealthGoal" component={AssessmentHealthGoal} />
+        <Stack.Screen name="Gender" component={Gender} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
