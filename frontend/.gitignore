@@ -33,6 +33,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+/.idea
 /android
 /ios
-/.idea
