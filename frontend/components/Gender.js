@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons'; // Icons
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Gender = () => {
+    const navigation = useNavigation();
   const [selectedGender, setSelectedGender] = useState(null); // Track selected option
 
   return (
@@ -46,11 +48,11 @@ const Gender = () => {
 
       {/* Skip and Continue Buttons */}
       <TouchableOpacity style={styles.skipButton}>
-        <Text style={styles.skipText}>Prefer to skip, thanks</Text>
+        <Text style={styles.skipText} onPress={() => navigation.navigate('Age')}>Prefer to skip, thanks</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('Age')}>Continue</Text>
         <Ionicons name="arrow-forward" size={20} color="#FFF" />
       </TouchableOpacity>
     </View>
