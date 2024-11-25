@@ -82,7 +82,7 @@ const ProfessionalHelp = () => {
 
       {/* Continue Button */}
       <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueButtonText}>Continue →</Text>
+        <Text style={styles.continueButtonText} onPress={() => navigation.navigate('PhysicalDistress')}  >Continue →</Text>
       </TouchableOpacity>
     </View>
   );
