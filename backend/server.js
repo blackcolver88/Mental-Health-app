@@ -1,30 +1,36 @@
-//importing modules
-const express = require('express')
-const sequelize = require('sequelize')
-const dotenv = require('dotenv').config()
-const cookieParser = require('cookie-parser')
- const db = require('./models')
- const userRoutes = require ('./Routes/userRoutes')
- 
+// Importing modules
+const express = require('express');
+const dotenv = require('dotenv').config();
+const cors = require('cors');
+const db = require('./models');
+const userRoutes = require('./Routes/userRoutes');
 
-//setting up your port
-const PORT = 8083
+// Setting up the port from the environment variable or default to 8083
+const PORT = process.env.PORT || 8083;
 
-//assigning the variable app to express
-const app = express()
+// Assigning the variable app to express
+const app = express();
 
-//middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-//synchronizing the database and forcing it to false so we dont lose data
-db.sequelize.sync({ force: true }).then(() => {
-    console.log("db has been re sync")
-})
+// Enable CORS for all routes
+app.use(cors());
 
-//routes for the user API
-app.use('/api/users', userRoutes)
+// Sync the database
+db.sequelize.sync({ alter: true }) // Use 'alter: true' to avoid data loss in dev environments
+  .then(() => {
+    console.log("Database synchronized successfully.");
+  })
+  .catch((error) => {
+    console.error("Error syncing the database:", error);
+  });
 
-//listening to server connection
-app.listen(PORT, () => console.log(`Server is connected on ${PORT}`))
+// User API Routes
+app.use('/api/users', userRoutes);
+
+// Start the server and listen on the specified port
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

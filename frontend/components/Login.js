@@ -1,14 +1,41 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Importing icons
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; // For social icons
 import { useNavigation } from '@react-navigation/native';
+import api from '../api';
 
 const Login = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+      const response = await api.post('/login', { email, password });
+      
+      // Store the token securely in localStorage, AsyncStorage, or context (depending on your preference)
+      const { token } = response.data;
+
+      // Save the JWT token to be used for authenticated routes (localStorage or AsyncStorage)
+      // For simplicity, let's just store it in memory for this example
+      console.log('Login successful, token:', token);
+
+      // Navigate based on user role
+      const { role } = response.data.user;
+      if (role === 'DOCTOR') {
+        navigation.navigate('firstPage');
+      } else {
+        navigation.navigate('AssessmentHealthGoal');
+      }
+
+    } catch (error) {
+      console.error('Login Error:', error);
+      Alert.alert('Error', error.response?.data?.message || 'Invalid credentials');
+    }
+  };
+
 
   return (
     <View style={styles.container}>
@@ -57,8 +84,8 @@ const Login = () => {
       {/* Sign In Button */}
       <TouchableOpacity 
        style={styles.signInButton}
-        onPress={() => navigation.navigate('AssessmentHealthGoal')
-       }
+       onPress={handleLogin}
+       
       >
         <Text style={styles.signInButtonText}>Sign In</Text>
         <Icon name="arrow-forward-outline" size={20} color="#FFFFFF" />

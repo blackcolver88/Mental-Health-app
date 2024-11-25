@@ -15,19 +15,17 @@ const signup = async (req, res) => {
      userName,
      email,
      password: await bcrypt.hash(password, 10),
+     role: "PATIENT",
    };
    //saving the user
    const user = await User.create(data);
 
-   //if user details is captured
-   //generate token with the user's id and the secretKey in the env file
-   // set cookie with the token generated
    if (user) {
      let token = jwt.sign({ id: user.id }, process.env.secretKey, {
        expiresIn: 1 * 24 * 60 * 60 * 1000,
      });
 
-     res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
+   
      console.log("user", JSON.stringify(user, null, 2));
      console.log(token);
      //send users details
@@ -44,46 +42,49 @@ const signup = async (req, res) => {
 //login authentication
 
 const login = async (req, res) => {
- try {
-const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-   //find a user by their email
-   const user = await User.findOne({
-     where: {
-     email: email
-   } 
-     
-   });
+    // Find the user by their email
+    const user = await User.findOne({
+      where: { email: email },
+    });
 
-   //if user email is found, compare password with bcrypt
-   if (user) {
-     const isSame = await bcrypt.compare(password, user.password);
+    // If user is found, compare the provided password with the stored hash
+    if (user) {
+      const isSame = await bcrypt.compare(password, user.password);
 
-     //if password is the same
-      //generate token with the user's id and the secretKey in the env file
+      if (isSame) {
+        // Generate JWT token with the user's ID and role
+        const token = jwt.sign(
+          { id: user.id, role: user.role }, 
+          process.env.secretKey,
+          { expiresIn: '1d' } // Token will expire in 1 day
+        );
 
-     if (isSame) {
-       let token = jwt.sign({ id: user.id }, process.env.secretKey, {
-         expiresIn: 1 * 24 * 60 * 60 * 1000,
-       });
-
-       //if password matches wit the one in the database
-       //go ahead and generate a cookie for the user
-       res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
-       console.log("user", JSON.stringify(user, null, 2));
-       console.log(token);
-       //send user data
-       return res.status(201).send(user);
-     } else {
-       return res.status(401).send("Authentication failed");
-     }
-   } else {
-     return res.status(401).send("Authentication failed");
-   }
- } catch (error) {
-   console.log(error);
- }
+        // Send back user data (without password) and the token
+        return res.status(200).json({
+          message: "Login successful",
+          token: token,
+          user: {
+            id: user.id,
+            userName: user.userName,
+            email: user.email,
+            role: user.role, // You can use this to navigate the user based on role
+          },
+        });
+      } else {
+        return res.status(401).json({ message: "Invalid credentials" });
+      }
+    } else {
+      return res.status(401).json({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error("Login Error:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
+
 
 module.exports = {
  signup,
