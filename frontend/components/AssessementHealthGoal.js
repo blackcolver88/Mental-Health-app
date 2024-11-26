@@ -24,11 +24,9 @@ const AssessmentHealthPage = () => {
       
       {/* Header */}
       <View style={styles.header}>
-      <View style={styles.iconCircle}>
-        <Ionicons name="chevron-back" size={20} color="#FFF" />
-     </View>
+      
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.pageCount}>1 of 14</Text>
+        <Text style={styles.pageCount}>1 of 10</Text>
       </View>
 
       {/* Question */}
@@ -93,6 +91,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#6B4A3D',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#E8DDD9",
+    justifyContent: "center",
+    alignItems: "center",
   },
   pageCount: {
     fontSize: 16,

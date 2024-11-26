@@ -14,11 +14,14 @@ const Age = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <View style={styles.iconCircle}>
+      <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
           <Ionicons name="chevron-back" size={20} color="#FFF" />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.pageCount}>3 of 14</Text>
+        <Text style={styles.pageCount}>3 of 10</Text>
       </View>
 
       {/* Question */}
