@@ -65,8 +65,8 @@ const Mood = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText} onPress={() => navigation.navigate('ProfessionalHelp')}  >Continue</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('ProfessionalHelp')}  >
+        <Text style={styles.continueText} >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>

@@ -105,8 +105,8 @@ const SleepQuality = () => {
           </Animated.View>
         </View>
       </View>
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueButtonText} onPress={() => navigation.navigate('MedicationScreen')}>  Continue →</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('MedicationScreen')} >
+        <Text style={styles.continueButtonText} >  Continue →</Text>
       </TouchableOpacity>      
     </View>
   );

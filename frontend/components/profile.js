@@ -8,8 +8,10 @@ import {
   FlatList,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // For bottom navigation icons
+import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
+  const navigation = useNavigation();
   // Mock data for "What makes your week?"
   const weeklyHighlights = [
     {
@@ -37,11 +39,9 @@ const Profile = () => {
       {/* Header */}
       <View style={styles.header}>
         <Image
-          source={{
-            uri: 'https://via.placeholder.com/50',
-          }} // Replace with the actual profile picture URL
-          style={styles.profileImage}
-        />
+          source={require('../assets/bti.png')} style={styles.profileImage}/>
+          
+       
         <View style={styles.headerTextContainer}>
           <Text style={styles.welcomeText}>Welcome, Ibtihel</Text>
           <TouchableOpacity style={styles.badge}>
@@ -94,7 +94,7 @@ const Profile = () => {
         <TouchableOpacity>
           <Ionicons name="heart-outline" size={28} color="#6B4A3D" />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Therapy')}>
           <Ionicons name="chatbubbles-outline" size={28} color="#6B4A3D" />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    marginRight: 10,
+    marginRight: 10
   },
   headerTextContainer: {
     flex: 1,

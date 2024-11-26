@@ -81,8 +81,8 @@ const ProfessionalHelp = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueButtonText} onPress={() => navigation.navigate('PhysicalDistress')}  >Continue →</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('PhysicalDistress')} style={styles.continueButton}>
+        <Text style={styles.continueButtonText}   >Continue →</Text>
       </TouchableOpacity>
     </View>
   );
@@ -99,7 +99,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 30,
+    marginBottom: 5,
+    paddingBottom: 50,
+    marginTop: -20,
   },
   backButton: {
     width: 40,
@@ -131,6 +133,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginVertical: 20,
+    marginTop:70 ,
   },
   illustration: {
     width: 200,

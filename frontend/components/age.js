@@ -58,8 +58,8 @@ const Age = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton} >
-        <Text style={styles.continueText} onPress={() => navigation.navigate('Weight')} >Continue</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('Weight')} >
+        <Text style={styles.continueText} >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 62,
   },
   ageOption: {
     height: 50,

@@ -96,8 +96,8 @@ const PhysicalDistress = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueButtonText} onPress={() => navigation.navigate('SleepQuality')} >Continue →</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('SleepQuality')}  >
+        <Text style={styles.continueButtonText} >Continue →</Text>
       </TouchableOpacity>
     </View>
   );

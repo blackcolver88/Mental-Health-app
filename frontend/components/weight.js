@@ -78,8 +78,8 @@ const Weight = () => {
       </Text>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText} onPress={() => navigation.navigate('Mood')} >Continue</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('Mood')}  >
+        <Text style={styles.continueText} >Continue</Text>
         <Text style={styles.arrowIcon}>→</Text>
       </TouchableOpacity>
     </View>
@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#6B4A3D',
     marginVertical: 20,
+    marginBottom: 38,
   },
   continueButton: {
     flexDirection: 'row',

@@ -54,8 +54,8 @@ const Gender = () => {
         <Text style={styles.skipText} onPress={() => navigation.navigate('Age')}>Prefer to skip, thanks</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText} onPress={() => navigation.navigate('Age')}>Continue</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Age')} >
+        <Text style={styles.buttonText} >Continue</Text>
         <Ionicons name="arrow-forward" size={20} color="#FFF" />
       </TouchableOpacity>
     </View>
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 30,
-    marginBottom: 15,
+    marginBottom: 47,
   },
   skipText: {
     fontSize: 18,

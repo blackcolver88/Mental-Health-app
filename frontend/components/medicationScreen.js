@@ -59,8 +59,8 @@ const MedicationsScreen = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText} onPress={() => navigation.navigate('StressLevel')} >Continue</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('StressLevel')}  >
+        <Text style={styles.continueText} >Continue</Text>
         <Ionicons name="arrow-forward" size={18} color="#FFF" />
       </TouchableOpacity>
     </View>

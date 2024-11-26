@@ -58,8 +58,8 @@ const StressLevel = () => {
       <Text style={styles.description}>{descriptions[stressLevel - 1]}</Text>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueText} onPress={() => navigation.navigate('Profile')} >Finish</Text>
+      <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('Profile')}  >
+        <Text style={styles.continueText} >Finish</Text>
         <Ionicons name="arrow-forward" size={18} color="#FFF" />
       </TouchableOpacity>
     </View>

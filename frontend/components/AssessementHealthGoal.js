@@ -64,8 +64,8 @@ const AssessmentHealthPage = () => {
       />
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText} onPress={() => navigation.navigate('Gender')}>Continue</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Gender')} >
+        <Text style={styles.buttonText} >Continue</Text>
         <Ionicons name="arrow-forward" size={20} color="#FFF" />
       </TouchableOpacity>
     </View>

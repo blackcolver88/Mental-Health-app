@@ -18,6 +18,8 @@ import SleepQuality from './components/sleepQuality';
 import MedicationScreen from './components/medicationScreen';
 import StressLevel from './components/stressLevel';
 import Profile from './components/profile';
+import Therapy from './components/therapy';
+import CommunityPage from './components/communityPage';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
         <Stack.Screen name='MedicationScreen' component={MedicationScreen} />
         <Stack.Screen name='StressLevel' component={StressLevel} />
         <Stack.Screen name='Profile' component={Profile} />
+        <Stack.Screen name='Therapy' component={Therapy} /> 
+        <Stack.Screen name='CommunityPage' component={CommunityPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
