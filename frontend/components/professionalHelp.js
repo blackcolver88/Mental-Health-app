@@ -24,7 +24,7 @@ const ProfessionalHelp = () => {
           <Ionicons name="chevron-back" size={20} color="#FFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.stepIndicator}>6 of 14</Text>
+        <Text style={styles.stepIndicator}>6 of 10</Text>
       </View>
 
       {/* Question Section */}

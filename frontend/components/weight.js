@@ -15,11 +15,11 @@ const Weight = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} >
           <Ionicons name="chevron-back" size={20} color="#FFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.pageCount}>4 of 14</Text>
+        <Text style={styles.pageCount}>4 of 10</Text>
       </View>
 
       {/* Question */}

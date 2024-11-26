@@ -24,7 +24,7 @@ const PhysicalDistress = () => {
           <Ionicons name="chevron-back" size={20} color="#FFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.stepIndicator}>7 of 14</Text>
+        <Text style={styles.stepIndicator}>7 of 10</Text>
       </View>
 
       {/* Question Section */}
@@ -97,7 +97,7 @@ const PhysicalDistress = () => {
 
       {/* Continue Button */}
       <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.continueButtonText}>Continue →</Text>
+        <Text style={styles.continueButtonText} onPress={() => navigation.navigate('SleepQuality')} >Continue →</Text>
       </TouchableOpacity>
     </View>
   );

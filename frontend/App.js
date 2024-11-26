@@ -14,6 +14,10 @@ import Weight from './components/weight';
 import Mood from './components/mood';
 import ProfessionalHelp from './components/professionalHelp';
 import PhysicalDistress from './components/physicalDistress';
+import SleepQuality from './components/sleepQuality';
+import MedicationScreen from './components/medicationScreen';
+import StressLevel from './components/stressLevel';
+import Profile from './components/profile';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -32,6 +36,10 @@ const App = () => {
         <Stack.Screen name='Mood' component={Mood} />
         <Stack.Screen name='ProfessionalHelp' component={ProfessionalHelp} />
         <Stack.Screen name='PhysicalDistress' component={PhysicalDistress} />
+        <Stack.Screen name='SleepQuality' component={SleepQuality} />
+        <Stack.Screen name='MedicationScreen' component={MedicationScreen} />
+        <Stack.Screen name='StressLevel' component={StressLevel} />
+        <Stack.Screen name='Profile' component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
