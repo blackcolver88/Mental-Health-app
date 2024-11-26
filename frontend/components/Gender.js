@@ -11,11 +11,14 @@ const Gender = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <View style={styles.iconCircle}>
+      <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
           <Ionicons name="chevron-back" size={20} color="#FFF" />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>Assessment</Text>
-        <Text style={styles.pageCount}>2 of 14</Text>
+        <Text style={styles.pageCount}>2 of 10</Text>
       </View>
 
       <Text style={styles.question}>What’s your official gender?</Text>
@@ -146,6 +149,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 120,
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#E8DDD9",
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     color: '#FFF',
